@@ -1,0 +1,20 @@
+.product-details-wrapper {
+    margin: 20px 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+.product-details-images {
+    width: 60%;
+    
+}
+.product-details-images img {
+    width: 45%;
+    margin: 10px;
+    border-radius: 10px;
+}
+.product-details-info {
+    width: 40%;
+    padding: 10px;
+}

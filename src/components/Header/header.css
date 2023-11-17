@@ -1,5 +1,26 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(230, 229, 239);
+}
+.header a {
+  text-decoration: none;
+}
+.logo {
+  color: rgb(86, 84, 171);
+}
+.cart-icon svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  
+  color: rgb(126, 53, 139);
+}
+
+.cart-icon svg:hover {
+  transform: scale(1.1);
+  
+
 }

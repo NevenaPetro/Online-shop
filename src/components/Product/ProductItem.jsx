@@ -3,16 +3,22 @@ import { useContext } from "react";
 import { applicationContext } from "../../context/AplicationContext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import DoneIcon from '@mui/icons-material/Done';
 import "../Product/productItem.css";
 
 function ProductItem({ item }) {
-  const { setActiveProduct } = useContext(applicationContext);
+  const { setActiveProduct, addToCart } = useContext(applicationContext);
   let { productURL } = useParams();
   return (
-    <>
-      <div className="product" onClick={() => setActiveProduct(item)}>
+    <div         className="product-item-wrapper"
+    >
+      <div
+        className="product-item"
+        onClick={() => setActiveProduct(item)}
+      >
         <Link to={`/product/${item.url}`}>
-          <div>
+          <div >
             <div>
               {item.images && (
                 <img
@@ -22,13 +28,16 @@ function ProductItem({ item }) {
                 />
               )}
             </div>
-            <p>{item.name}</p>
-            <p>Price: {item.price}$</p>
+            <p className="product-name">{item.name}</p>
+            <p className="product-descr">{item.description}</p>
+            <p className="product-price">{item.price}$</p>
           </div>
         </Link>
       </div>
-      <button onClick={()=>{}}>Add to cart</button>
-    </>
+      <div className="add-to-cart-btn" onClick={() => addToCart(item)}>
+        <AddShoppingCartIcon />
+      </div>
+    </div>
   );
 }
 

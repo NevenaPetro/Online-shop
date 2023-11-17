@@ -10,7 +10,6 @@ function HomePage() {
 
   return (
     <div>
-      <h3>HomePage</h3>
       <div className="products">
         {productsList &&
           productsList.map((e) => (

@@ -4,7 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ShoppingCartPage from "./pages/ShoppingCartPage/ShoppingCartPage";
 import Header from "./components/Header/Header";
-import ProductPage from './pages/ProductPage/ProductPage'
+import ProductPage from "./pages/ProductPage/ProductPage";
+import '../src/app.css'
 
 function App() {
   const [productsList, setProductsList] = useState([]);
@@ -26,8 +27,8 @@ function App() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  const addToCart = () => {
-    
+  const addToCart = (newCartItem) => {
+    setCartList([...cartList, newCartItem]);
   };
 
   return (
@@ -38,6 +39,7 @@ function App() {
         activeProduct,
         setActiveProduct,
         setCartList,
+        addToCart
       }}
     >
       <div className="App">
