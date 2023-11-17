@@ -1,0 +1,16 @@
+.footer {
+  height: 50px;
+  width: 100%;
+  background-color:  rgb(86, 84, 171);
+  color: rgb(196, 150, 206);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: -35px;
+  transition: ease-in-out 0.3s
+}
+.footer:hover {
+    bottom:0;
+    transition: ease-in 0.3s;
+}

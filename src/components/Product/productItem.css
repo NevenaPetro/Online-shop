@@ -22,6 +22,7 @@
   border-radius: 10px;
 }
 .product-name {
+  font-size: 15px;
   font-weight: 700;
   text-wrap: wrap;
   width: 80%;
@@ -62,4 +63,16 @@
 .add-to-cart-btn:hover {
   transform: scale(1.05);
   background-color: rgb(126, 53, 139);
+}
+.remove-from-cart-btn{
+  background-color:  rgb(86, 84, 171);
+  width: 60px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 30px;
+  bottom: -15px;
 }

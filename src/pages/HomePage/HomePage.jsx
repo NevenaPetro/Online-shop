@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { applicationContext } from "../../context/AplicationContext";
-
+import SubHeader from "../../components/SubHeader/SubHeader";
 import ProductItem from "../../components/Product/ProductItem";
 import "../HomePage/homepage.css";
 
@@ -10,6 +10,7 @@ function HomePage() {
 
   return (
     <div>
+      <SubHeader />
       <div className="products">
         {productsList &&
           productsList.map((e) => (

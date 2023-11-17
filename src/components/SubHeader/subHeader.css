@@ -1,0 +1,8 @@
+.sub-header-wrapper{
+    height: 40px;
+    background-color: rgb(204, 202, 224);
+    position: fixed;
+    top: 54px;
+    width: 100%;
+    z-index: 1;
+}

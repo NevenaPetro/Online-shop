@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { applicationContext } from "../../context/AplicationContext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import DoneIcon from '@mui/icons-material/Done';
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import "../Product/productItem.css";
 
 function ProductItem({ item }) {
-  const { setActiveProduct, addToCart } = useContext(applicationContext);
+  const { setActiveProduct, addToCart, removeFromCart, isInCart } =
+    useContext(applicationContext);
+  
   let { productURL } = useParams();
   return (
-    <div         className="product-item-wrapper"
-    >
-      <div
-        className="product-item"
-        onClick={() => setActiveProduct(item)}
-      >
+    <div className="product-item-wrapper">
+      <div className="product-item" onClick={() => setActiveProduct(item)}>
         <Link to={`/product/${item.url}`}>
-          <div >
+          <div>
             <div>
               {item.images && (
                 <img
@@ -34,9 +32,26 @@ function ProductItem({ item }) {
           </div>
         </Link>
       </div>
-      <div className="add-to-cart-btn" onClick={() => addToCart(item)}>
-        <AddShoppingCartIcon />
-      </div>
+      {!isInCart(item) && (
+        <div
+          className="add-to-cart-btn"
+          onClick={() => {
+            addToCart(item);
+          }}
+        >
+          <AddShoppingCartIcon />
+        </div>
+      )}
+      {isInCart(item) && (
+        <div
+          className="remove-from-cart-btn"
+          onClick={() => {
+            removeFromCart(item);
+          }}
+        >
+           <RemoveShoppingCartIcon />
+        </div>
+      )}
     </div>
   );
 }
