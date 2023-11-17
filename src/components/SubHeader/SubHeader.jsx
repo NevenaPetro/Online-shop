@@ -10,7 +10,7 @@ function SubHeader() {
     <div className="sub-header-wrapper">
       <div className="sort">
         <label htmlFor="sort">Sort : </label>
-        <select name="sort" type="select" defaultValue=""  onChange={handleSort(value)}>
+        <select name="sort" type="select" defaultValue=""  onChange={handleSort}>
           <option disabled ></option>
           <option value="ascending">ascending</option>
           <option value="descending">descending</option>
