@@ -15,16 +15,30 @@
 .logo {
   color: rgb(86, 84, 171);
 }
+.searct-cart-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.search {
+  margin-right: 20px;
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(227, 198, 235);
+  padding-left: 5px;
+}
+.search:focus {
+  outline: none;
+}
 .cart-icon svg {
   width: 30px;
   height: 30px;
   margin-right: 20px;
-  
   color: rgb(126, 53, 139);
 }
 
 .cart-icon svg:hover {
   transform: scale(1.1);
-  
-
 }

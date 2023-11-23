@@ -1,8 +1,33 @@
-.sub-header-wrapper{
-    height: 40px;
-    background-color: rgb(204, 202, 224);
-    position: fixed;
-    top: 54px;
-    width: 100%;
-    z-index: 1;
+.sub-header-wrapper {
+  height: 40px;
+  background-color: rgb(204, 202, 224);
+  position: fixed;
+  top: 54px;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+.sort select {
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+}
+.sort label {
+  font-weight: 700;
+  color: rgb(86, 84, 171);
+}
+.filter select {
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+}
+.filter label {
+    font-weight: 700;
+    color: rgb(86, 84, 171);
+  }

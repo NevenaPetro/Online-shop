@@ -10,10 +10,12 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import "../src/app.css";
 
 function App() {
+  const [productsListAll, setProductsListAll] = useState([]);
   const [productsList, setProductsList] = useState([]);
   const [activeProduct, setActiveProduct] = useState({});
   const [cartList, setCartList] = useState([]);
-  const [selectedSort, setSelectedSort] = useState('')
+  const [selectedSort, setSelectedSort] = useState("");
+  const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
     var requestOptions = {
@@ -26,6 +28,7 @@ function App() {
       .then((response) => response.json())
       .then((result) => {
         const products = result.products.data.items;
+        setProductsListAll(products);
         setProductsList(products);
         console.log("Products data fetched from backend");
       })
@@ -33,9 +36,17 @@ function App() {
         console.log("Products data fetch error:", error);
         const loadData = JSON.parse(JSON.stringify(jsonData));
         const products = loadData.products.data.items;
+        categoryList &&
+          products.map((el) => {
+            !categoryList.includes(el.category) &&
+              categoryList.push(el.category);
+            setCategoryList(categoryList);
+          });
+
         console.log(
           "Products data fetched from local file. Please run app in CORS disabled browser!"
         );
+        setProductsListAll(products);
         setProductsList(products);
       });
   }, []);
@@ -49,8 +60,28 @@ function App() {
   const isInCart = (item) => {
     return cartList.includes(item);
   };
-  const handleSort = (item) => {
-    return cartList.includes(item);
+  const handleSort = (e) => {
+    setSelectedSort(e.target.value);
+    if (selectedSort == "ascending") {
+      productsList.sort((a, b) => b.price - a.price);
+    } else {
+      productsList.sort((a, b) => a.price - b.price);
+    }
+    setProductsList(productsList);
+  };
+  const handleFilter = (e) => {
+    let filteredList = productsListAll.filter(
+      (el) => el.category == e.target.value
+    );
+    setProductsList(filteredList);
+  };
+  const handleSearch = (e) => {
+    let searchInput = e.target.value;
+    let searchResult = productsListAll.filter(
+      (el) =>
+        el.name.toLowerCase().includes(searchInput) || el.description.toLowerCase().includes(searchInput)
+    );
+    setProductsList(searchResult);
   };
 
   return (
@@ -65,6 +96,11 @@ function App() {
         removeFromCart,
         isInCart,
         handleSort,
+        selectedSort,
+        setSelectedSort,
+        handleFilter,
+        categoryList,
+        handleSearch,
       }}
     >
       <div className="App">

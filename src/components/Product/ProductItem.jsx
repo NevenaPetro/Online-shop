@@ -27,6 +27,7 @@ function ProductItem({ item }) {
               )}
             </div>
             <p className="product-name">{item.name}</p>
+            <p className="product-cat">{item.category}</p>
             <p className="product-descr">{item.description}</p>
             <p className="product-price">{item.price}$</p>
           </div>

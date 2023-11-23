@@ -14,7 +14,7 @@ function ProductPage() {
       <div className="product-details-images">
         {activeProduct.images &&
           activeProduct.images.map((e) => (
-            <img key={e.id} src={activeProduct.images[0]} alt="product-image" />
+            <img key={e} src={e} alt="product-image" />
           ))}
       </div>
       <div className="product-details-info">
@@ -27,9 +27,9 @@ function ProductPage() {
         <p className="product-descr">{activeProduct.description}</p>
 
         <p className="product-feattures">{activeProduct.features}</p>
-        
+
         <div className="buy-product">
-        <p className="product-price">Price: {activeProduct.price}$</p>
+          <p className="product-price">Price: {activeProduct.price}$</p>
           {!isInCart(activeProduct) && (
             <div
               className="add-to-cart-btn-page"
